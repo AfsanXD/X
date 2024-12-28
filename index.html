@@ -1,62 +1,104 @@
 <!DOCTYPE html>
 <html>
   <head lang="en">
-    <title>mirrorTouhidurrr</title>
+    <title>XDev</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="touhidurrr" />
-    <meta name="author" content="Md. Touhidur Rahman" />
+    <meta name="author" content="XDev" />
+    <meta name="author" content="XDev" />
     <script src="js/three.min.js"></script>
     <script src="js/vanta.net.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
       html,
       body {
         height: 100%;
         width: 100%;
         margin: 0;
-        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Roboto', sans-serif;
         color: #1de9b6;
+        background-color: #121212;
       }
-      button,
+      h3, h4 {
+        margin: 0.5em 0;
+      }
+      table {
+        margin-top: 1em;
+      }
       input {
-        padding: 2%;
-        margin: 0;
+        padding: 10px;
+        margin-right: 10px;
         border: none;
         border-radius: 5px;
-        color: black;
-      }
-      input {
+        color: #ffffff;
         background: #afb42b;
+        font-size: 1rem;
       }
       button {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
         background: #ff8f00;
+        color: #ffffff;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      button:hover {
+        background-color: #ff6f00;
+      }
+      a {
+        font-size: 1.2rem;
+        color: #0097A7;
+        text-decoration: none;
+        margin-top: 2em;
+        display: inline-flex;
+        align-items: center;
+      }
+      a:hover {
+        color: #00bcd4;
+      }
+      a img {
+        margin-right: 8px;
+      }
+      #error {
+        color: lime;
+        font-size: 0.9rem;
+        margin-top: 1em;
       }
     </style>
     <script>
       function go() {
-        url = document.getElementById('url').value;
+        const url = document.getElementById('url').value;
         if (/^\s*https?:\/\//.test(url)) {
           location.href = url.replace(/^\s*https?:\/\//, `https://${location.host}/`);
         } else if (url.includes('.')) {
           location.href = `https://${location.host}/${url}`;
         } else {
-          document.getElementById('error').innerHTML =
-            '<small>Unrecognized URL format!</small>';
+          document.getElementById('error').innerHTML = '<small>Unrecognized URL format!</small>';
         }
       }
     </script>
   </head>
-  <body align="center">
-    <br><br><br><br><br><br><br><br><br>
-    <h3>mirrorTouhidurrr</h3>
-    <h4>a WebProxy built with Cloudflare Workers</h4>
-    <table align="center">
+  <body>
+    <h3>XDev</h3>
+    <h4>WebProxy</h4>
+    <table>
       <tr>
-        <input type="url" id="url" placeholder="https://example.com/" />&nbsp
-        <button onclick="go()">go</button>
+        <td>
+          <input type="url" id="url" placeholder="https://example.com/" />
+        </td>
+        <td>
+          <button onclick="go()">Go</button>
+        </td>
       </tr>
-      <tr style="color: lime" id="error"></tr>
-    </table><br>
-    <a style="font-size:130%; color:#0097A7;" href="https://github.com/touhidurrr/mirrorTouhidurrr"><img height="19" src="images/GitHub-Mark-Light-32px.png">&nbsp;Github</a>
+      <tr>
+        <td colspan="2" id="error"></td>
+      </tr>
+    </table>
     <script>
       VANTA.NET({
         el: 'body',
@@ -71,3 +113,4 @@
     </script>
   </body>
 </html>
+
